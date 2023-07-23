@@ -1,2 +1,4 @@
 # student-management-system
 Capstone project for MS in Software Development
+
+The purpose of this student management system (SMS) is to attempt to correct some of the challenges that are present in current SMSs. As a teacher for the past five years, I have used several SMSs- these current systems are not built for ease of use or convienienece. My goal is to create the foundation, or a MVP, that meets the needs of students and teachers alike. Looking at student grades as a parent should not be a difficult process. The current difficulty limits the number of parents that do track their student's progress. Similarly- many teachers, old and new, struggle with the systems. How do you pull reports? How do you create a new assignment? We live in an age of technology- where life is supposed to be aided by the software and systems we use. In education, SMSs do not currently meet the modern standards. I would like to work to develop something that fits these needs.
