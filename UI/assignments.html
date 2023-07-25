@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="custom.css" rel="stylesheet">
+    <script type="javascript" src="jquery-3.6.4.min.js"></script>
+    <script type="javascript" src="mustache.js"></script>
+    <script type="javascript" src="data.js"></script>
+    <title>Student Management System</title>
+</head>
+<body onLoad="renderClasses()">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img role="img" aria-label="Titan Student Solutions logo" src='TSSlogo.png' style="height:100px; margin: 0; padding: 0;"></a>
+          </div>
+          <div>
+              <a class="nav-option" href="home.html">Home</a>
+              <p style="display: inline-block">&nbsp&nbsp</p>
+              <a class="nav-option" href="assignments.html">Assignments</a>
+              <p style="display: inline-block">&nbsp&nbsp</p>
+              <a class="nav-option" href="behavior.html">Behavior</a>
+              <p style="display: inline-block">&nbsp&nbsp</p>
+              <a class="nav-option" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <div class="container">
+          <h1>School District Name</h1>
+          <p>Teacher Name</p>
+          <br>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <table style="text-align: center; width: 100%;">
+            <caption style="caption-side: top; color: black;"><h5><u>Current assignments:</u></h5></caption>
+            <colgroup>
+              <col/>
+              <col style="background-color: #A7D2FF;" />
+              <col/>
+              <col style="background-color: #A7D2FF;" />
+              <col/>
+            </colgroup>
+            <tr style="background-color: #007DFF;">
+              <th>Assignment Name</th>
+              <th>Class Assigned</th>
+              <th>Due Date</th>
+              <th>Points Possible</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>Assignment 1</td>
+              <td>Biology</td>
+              <td>4/21/2023</td>
+              <td>100</td>
+              <td>A worksheet on the process of photosynthesis</td>
+            </tr>
+            <tr>
+              <td>Assignment 2</td>
+              <td>Biology</td>
+              <td>4/28/2023</td>
+              <td>100</td>
+              <td>A worksheet on the process of cellular respiration</td>
+            </tr>
+            <tr>
+              <td>Assignment 1</td>
+              <td>Principles of Biomedical Science</td>
+              <td>4/21/2023</td>
+              <td>50</td>
+              <td>Creating a heartbox to show the flow of blood through the body</td>
+            </tr>
+            <tr>
+              <td>Assignment 1</td>
+              <td>Forensics</td>
+              <td>4/28/2023</td>
+              <td>200</td>
+              <td>Creating a presentation about a case study of a solved murder</td>
+            </tr>
+            <tr>
+              <td>Assignment 2</td>
+              <td>Principles of Biomedical Science</td>
+              <td>4/28/2023</td>
+              <td>150</td>
+              <td>A 3D model of the heart and circulatory system</td>
+            </tr>
+            
+    
+          </table>
+        </div>
+        <div class="col-md-6">
+            <h5><u>Create a new assignment:</u></h5>
+
+            <label for="name">Assignment Name: </label>
+            <input id="name" name="name" placeholder="Name of Assignment"></input><br>
+            <br>
+            <label for="class">Select class:</label>
+            <select id="class" name="class">
+              <option value="biology">Biology</option>
+              <option value="pbs">Principles of Biomedical Science (PBS)</option>
+              <option value="forensics">Forensics</option>
+              <option value="mi">Medical Interventions (MI)</option>
+            </select>
+        
+            <label for="date">Select the due date:</label><br>
+            <input type="date" id="date"name="date">
+            <br><br>
+            <label for="points">Possible Points:</label><br>
+            <input id="points" name="points" placeholder="Number of possible points"></input>
+            <br><br>
+            <label for="description">Assignment Description:</label><br>
+            <textarea id="description" name="description" placeholder="Describe the assignment here..."></textarea>
+        
+            <input type="submit" value="Submit">
+        
+          </form>
+        </div>
+      </div>
+
+</body>
+</html>
