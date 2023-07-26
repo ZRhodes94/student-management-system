@@ -1,0 +1,22 @@
+{
+  "name": "student-management-system",
+  "version": "1.0.0",
+  "description": "Capstone Project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZRhodes94/student-management-system.git"
+  },
+  "keywords": [
+    "capstone"
+  ],
+  "author": "ZRhodes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZRhodes94/student-management-system/issues"
+  },
+  "homepage": "https://github.com/ZRhodes94/student-management-system#readme"
+}
