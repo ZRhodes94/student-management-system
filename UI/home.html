@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <title>Student Management System</title>
+</head>
+<body onLoad="renderClasses()">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img role="img" aria-label="Titan Student Solutions logo" src='images/TSSlogo.png' style="height:100px; margin: 0; padding: 0;"></a>
+          </div>
+          <div>
+              <a class="nav-option" href="home.html">Home</a>
+              <p style="display: inline-block">&nbsp&nbsp</p>
+              <a class="nav-option" href="assignments.html">Assignments</a>
+              <p style="display: inline-block">&nbsp&nbsp</p>
+              <a class="nav-option" href="behavior.html">Behavior</a>
+              <p style="display: inline-block">&nbsp&nbsp</p>
+              <a class="nav-option" href="contact.html">Contact</a>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <div class="container">
+          <h1>School District Name</h1>
+          <p>Teacher Name</p>
+          <br>
+        </div>
+      </div>
+      
+      <section>
+        <div class="row">
+        <div class="col-md-3 to-do">
+            <h3>To Do List:</h3>
+            <ul>
+                <li>Complete this item by date</li>
+                <li>Complete this item by date</li>
+                <li>Complete this item by date</li>
+                <li>Complete this item by date</li>
+                <li>Complete this item by date</li>
+                <li>Complete this item by date</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+              <div class="col-md-4 odd" id="template">
+              <a href="class-info.html" style="color: black; text-decoration: none;">
+              <h3>{{classOne}}</h3>
+              <p>{{descriptionOne}}</p>
+              </a></div>
+            <div class="col-md-4 even" id="template">
+              <a href="class-info.html" style="color: black; text-decoration: none;">  
+              <h3>{{classTwo}}</h3>
+                <p>{{descriptionTwo}}</p></a>
+            </div>
+            <div class="col-md-4 odd" id="template">
+                <a href="class-info.html" style="color: black; text-decoration: none;">
+                <h3>{{classThree}}</h3>
+                <p>{{descriptionThree}}</p></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 even" id="template">
+              <a href="class-info.html" style="color: black; text-decoration: none;">  
+              <h3>{{classFour}}</h3>
+                <p>{{descriptionFour}}</p></a>
+            </div>
+            <div class="col-md-4 odd" id="template">
+              <a href="class-info.html" style="color: black; text-decoration: none;">  
+              <h3>{{classFive}}</h3>
+                <p>{{descriptionFive}}</p></a>
+            </div>
+            <div class="col-md-4 even" id="template">
+              <a href="class-info.html" style="color: black; text-decoration: none;">  
+              <h3>{{classSix}}</h3>
+                <p>{{descriptionSix}}</p></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 contact">
+            <h3>Contact Form:</h3>
+            <form action="action_page.php">
+
+                <label for="fname">Student Name</label>
+                <input type="text" id="name" name="name" placeholder="Student name..">
+            
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+            
+                <input type="submit" value="Send">
+            
+              </form>
+        </div>
+        </div>
+      </section>
+    
+</body>
+</html>
