@@ -1,0 +1,85 @@
+body {
+	font-family: tahoma, sans-serif;
+}
+
+h1,
+h2 {
+	font-weight: bold;
+    color: black;
+}
+p {
+	font-size: 16px;
+}
+
+.nav-option {
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.navbar-inverse {
+	background: #007DFF;
+	border: 0;
+}
+
+.nav-option:hover {
+	background: white;
+    color: black;
+}
+
+.odd {
+    background-color: #5DACFE;
+}
+
+.even {
+    border-color: #5DACFE;
+}
+
+.to-do {
+    text-align: center;
+    background-color: #A7D2FF;
+}
+
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: #007DFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #5DACFE;
+  }
+
+  .contact {
+    background-color: #A7D2FF;
+  }
+
+  @media all and (max-width: 800px) {
+    .to-do, .contact {
+      display: none;
+    }
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+
