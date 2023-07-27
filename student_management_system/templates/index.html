@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'custom.css' %}" rel="stylesheet">
+    <title>Student Management System</title>
+</head>
+<style>  
+ input[type=text], input[type=password] {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid black;   
+        box-sizing: border-box;   
+    }  
+</style>
+<body onLoad="renderClasses()">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img role="img" aria-label="Titan Student Solutions logo" src="{% static 'TSSlogo.png' %}" style="height:100px; margin: 0; padding: 0;"></a>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <div class="container">
+          <h1>School District Name</h1>
+          <br>
+        </div>
+      </div>
+      
+      <section>
+        <div class="row">
+        <div class="col-md-3 to-do">
+        </div>
+        <div class="col-md-6">
+          <form>  
+            <div class="container">   
+                <label>Username : </label>   
+                <input type="text" placeholder="Enter Username" name="username" required>  
+                <label>Password : </label>   
+                <input type="password" placeholder="Enter Password" name="password" required>  
+                <br>
+                <button type="submit">Login</button>     
+            </div>   
+        </form>
+        </div>
+        <div class="col-md-3 contact"> 
+        </div>
+        </div>
+      </section>
+    
+</body>
+</html>
