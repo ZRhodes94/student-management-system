@@ -10,8 +10,6 @@ class Student(models.Model):
     studentID = models.IntegerField()
     name = models.CharField(max_length=80)
     gradeLevel = models.IntegerField()
-    parentID = models.IntegerField()
-    courseID = models.IntegerField()
 
 class Parent(models.Model):
     parentID = models.IntegerField()
@@ -28,14 +26,23 @@ class Course(models.Model):
     courseID = models.IntegerField()
     name = models.CharField(max_length=80)
     description = models.CharField()
-    teacherID = models.IntegerField()
-    assignmentID = models.IntegerField()
     time = models.IntegerField()
+    teacherID = models.IntegerField()
 
 class Assignment(models.Model):
     assignmentID = models.IntegerField()
     name = models.CharField(max_length=80)
     description = models.CharField()
     pointsPossible = models.IntegerField()
-    pointsEarned = models.IntegerField()
+    courseID = models.IntegerField()
+
+class Student_Courses(models.Model):
     studentID = models.IntegerField()
+    courseID = models.IntegerField()
+
+class Grades(models.Model):
+    assignmentID = models.IntegerField()
+    studentID = models.IntegerField()
+    courseID = models.IntegerField()
+    pointsEarned = models.IntegerField()
+
