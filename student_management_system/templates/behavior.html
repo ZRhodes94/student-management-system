@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'custom.css' %}" rel="stylesheet">
+    <title>Student Management System</title>
+</head>
+<body onLoad="renderClasses()">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img role="img" aria-label="Titan Student Solutions logo" src="{% static 'TSSlogo.png' %}" style="height:100px; margin: 0; padding: 0;"></a>
+          </div>
+          <div>
+            <a class="nav-option" href="{% url 'home_view' %}">Home</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'assignments_view' %}">Assignments</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'behavior_view' %}">Behavior</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'contact_view' %}">Contact</a>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <div class="container">
+          <h1>School District Name</h1>
+          <p>Teacher Name</p>
+          <br>
+        </div>
+      </div>
+      
+      <table style="text-align: center; width: 100%;">
+        <caption style="caption-side: top; color: black;"><h5><u>Current behavioral referrals:</u></h5></caption>
+        <colgroup>
+          <col/>
+          <col style="background-color: #A7D2FF;" />
+          <col/>
+          <col style="background-color: #A7D2FF;" />
+          <col/>
+        </colgroup>
+        <tr style="background-color: #007DFF;">
+          <th>Student Name</th>
+          <th>Date and Time</th>
+          <th>Class Period</th>
+          <th>Teacher Name</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Student 1</td>
+          <td>4/21/2023 9:05 AM</td>
+          <td>Biology</td>
+          <td>Teacher 1</td>
+          <td>Student was insubordinate to teacher</td>
+        </tr>
+        <tr>
+          <td>Student 2</td>
+          <td>4/21/2023 9:05 AM</td>
+          <td>Forensics</td>
+          <td>Teacher 1</td>
+          <td>Student was insubordinate to teacher</td>
+        </tr>
+        <tr>
+          <td>Student 3</td>
+          <td>4/21/2023 9:05 AM</td>
+          <td>Principles of Biomedical Science</td>
+          <td>Teacher 2</td>
+          <td>Student was insubordinate to teacher</td>
+        </tr>
+        <tr>
+          <td>Student 1</td>
+          <td>4/21/2023 9:05 AM</td>
+          <td>Medical Interventions</td>
+          <td>Teacher 2</td>
+          <td>Student was insubordinate to teacher</td>
+        </tr>
+        <tr>
+          <td>Student 3</td>
+          <td>4/21/2023 9:05 AM</td>
+          <td>Biology</td>
+          <td>Teacher 3</td>
+          <td>Student was insubordinate to teacher</td>
+        </tr>
+        
+
+      </table>
+      <br>
+      <div class="container">
+        <h5><u>Create a new referral:</u></h5>
+      
+        <label for="class">Class</label>
+        <select id="class" name="class">
+          <option value="biology">Biology</option>
+          <option value="pbs">Principles of Biomedical Science (PBS)</option>
+          <option value="forensics">Forensics</option>
+          <option value="mi">Medical Interventions (MI)</option>
+        </select>
+
+        <label for="student">Student</label>
+        <select id="student" name="student">
+          <option value="one">Student Name 1</option>
+          <option value="two">Student Name 2</option>
+          <option value="three">Student Name 3</option>
+          <option value="four">Student Name 4</option>
+          <option value="four">Student Name 5</option>
+          <option value="one">Student Name 6</option>
+          <option value="two">Student Name 7</option>
+          <option value="three">Student Name 8</option>
+          <option value="four">Student Name 9</option>
+          <option value="four">Student Name 10</option>
+        </select>
+    
+        <label for="date-time">Select the date and time of the incident:</label>
+        <input type="datetime-local" id="date-time"name="date-time">
+
+        <textarea id="description" name="description" placeholder="Describe the incident here..."></textarea>
+    
+        <input type="submit" value="Submit">
+    
+      </form>
+    </div>
+</body>
+</html>

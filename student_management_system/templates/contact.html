@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'custom.css' %}" rel="stylesheet">
+    <title>Student Management System</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img role="img" aria-label="Titan Student Solutions logo" src=UI/contact.html style="height:100px; margin: 0; padding: 0;"></a>
+          </div>
+          <div>
+            <a class="nav-option" href="{% url 'home_view' %}">Home</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'assignments_view' %}">Assignments</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'behavior_view' %}">Behavior</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'contact_view' %}">Contact</a>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <div class="container">
+          <h1>School District Name</h1>
+          <p>Teacher Name</p>
+          <br>
+        </div>
+      </div>
+
+      <h5><u>Create a Student and Parent Contact:</u></h5><br>
+      
+      <div class="container">
+      
+          <label for="class">Class</label>
+          <select id="class" name="class">
+            <option value="biology">Biology</option>
+            <option value="pbs">Principles of Biomedical Science (PBS)</option>
+            <option value="forensics">Forensics</option>
+            <option value="mi">Medical Interventions (MI)</option>
+          </select>
+
+          <label for="student">Student</label>
+          <select id="student" name="student">
+            <option value="one">Student Name 1</option>
+            <option value="two">Student Name 2</option>
+            <option value="three">Student Name 3</option>
+            <option value="four">Student Name 4</option>
+            <option value="four">Student Name 5</option>
+            <option value="one">Student Name 6</option>
+            <option value="two">Student Name 7</option>
+            <option value="three">Student Name 8</option>
+            <option value="four">Student Name 9</option>
+            <option value="four">Student Name 10</option>
+          </select>
+      
+          <label for="subject">Subject: </label>
+          <input id="subject" name="subject" placeholder="Subject of Message"></input>
+
+          <input type="checkbox" id="parents" name="parents" value="parents">
+          <label for="parents">Include parents?</label>
+
+          <textarea id="body" name="body" placeholder="Type your message here..."></textarea>
+      
+          <input type="submit" value="Submit">
+      
+        </form>
+      </div>
+    
+</body>
+</html>
