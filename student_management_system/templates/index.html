@@ -41,16 +41,15 @@
         <div class="col-md-3 to-do">
         </div>
         <div class="col-md-6">
-          <form>  
+          {% block content %}
+          <form method="POST" class="container">  
             <div class="container">   
-                <label>Username : </label>   
-                <input type="text" placeholder="Enter Username" name="username" required>  
-                <label>Password : </label>   
-                <input type="password" placeholder="Enter Password" name="password" required>  
-                <br>
-                <button type="submit">Login</button>     
+                {% csrf_token %}
+                {{ form.as_p }}
+               <button type="submit">Log In</button>     
             </div>   
         </form>
+        {% endblock %}
         </div>
         <div class="col-md-3 contact"> 
         </div>
