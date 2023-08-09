@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -42,8 +44,10 @@ def assignments_view(request):
         form = AssignmentForm(request.POST or None)
         if form.is_valid():
             form.save()
+            messages.success(request, ('Your assignment was successfully added!'))
         return HttpResponse(template.render(context, request))
     else:
+        messages.error(request, 'Error saving assignment.')
         return HttpResponse(template.render(context, request))
 
 def behavior_view(request):
