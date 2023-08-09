@@ -15,7 +15,7 @@ class Course(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, default=0)
 
     def __str__(self):
-        return self.name + " " + self.time
+        return self.name + " " + self.time.strftime("%H:%M")
 
 class Student(models.Model):
     name = models.CharField(max_length=80)
