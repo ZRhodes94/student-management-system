@@ -76,16 +76,7 @@ WSGI_APPLICATION = 'sms_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dalfemh8o17bim', 
-        'USER': 'wlkvktncexzmpp',
-        'PASSWORD': '0578f7c3b3a49a82863a42b63f4f3fa655732f91f6910dc3612599a247548534',
-        'HOST': 'ec2-35-169-9-79.compute-1.amazonaws.com', 
-        'PORT': '5432',
-    }
-}
+DATABASES = {}
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
@@ -143,3 +134,8 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "home/"
+
+django_heroku.settings(locals())
+
+options = DATABASES['default'].get('OPTIONS', {})
+options.pop('sslmode', None)
