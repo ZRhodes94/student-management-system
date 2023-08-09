@@ -68,6 +68,7 @@
         </div>
         <div class="col-md-6">
           <form method="POST" action="{% url 'assignments_view' %}">
+            {% csrf_token %}
             <h5><u>Create a new assignment:</u></h5>
 
             <label for="name">Assignment Name: </label>
