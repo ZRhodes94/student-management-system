@@ -103,7 +103,7 @@
             <label for="class">Select class:</label>
             <select id="class" name="class">
               {% for course in courses %}
-              <option value="{{course.name}}">{{course.name}}</option>
+              <option value="{{course.name}}">{{course.name}} {{course.time}}</option>
               {% endfor %}
             </select>
         
