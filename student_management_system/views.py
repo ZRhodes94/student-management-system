@@ -18,7 +18,7 @@ def home_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
     courses = Course.objects.filter(teacher = 1).order_by('time')
     assignments = Assignment.objects.all()
-    context = {"teacher": teacher, "courses": courses}
+    context = {"teacher": teacher, "courses": courses, "assignments": assignments}
     template = loader.get_template('home.html')
     return HttpResponse(template.render(context, request))
 
