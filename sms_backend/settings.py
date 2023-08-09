@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -88,7 +87,9 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://wlkvktncexzmpp:0578f7c3b3a49a82863a42b63f4f3fa655732f91f6910dc3612599a247548534@ec2-35-169-9-79.compute-1.amazonaws.com:5432/dalfemh8o17bim')
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
 
 
 # Password validation
