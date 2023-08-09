@@ -55,46 +55,19 @@
               <th>Points Possible</th>
               <th>Description</th>
             </tr>
+            {% for assignment in assignments %}
             <tr>
-              <td>Assignment 1</td>
-              <td>Biology</td>
-              <td>4/21/2023</td>
-              <td>100</td>
-              <td>A worksheet on the process of photosynthesis</td>
+              <td>assignment.name</td>
+              <td>assignment.course.name</td>
+              <td>assignment.dueDate</td>
+              <td>assignment.pointsPossible</td>
+              <td>assignment.description</td>
             </tr>
-            <tr>
-              <td>Assignment 2</td>
-              <td>Biology</td>
-              <td>4/28/2023</td>
-              <td>100</td>
-              <td>A worksheet on the process of cellular respiration</td>
-            </tr>
-            <tr>
-              <td>Assignment 1</td>
-              <td>Principles of Biomedical Science</td>
-              <td>4/21/2023</td>
-              <td>50</td>
-              <td>Creating a heartbox to show the flow of blood through the body</td>
-            </tr>
-            <tr>
-              <td>Assignment 1</td>
-              <td>Forensics</td>
-              <td>4/28/2023</td>
-              <td>200</td>
-              <td>Creating a presentation about a case study of a solved murder</td>
-            </tr>
-            <tr>
-              <td>Assignment 2</td>
-              <td>Principles of Biomedical Science</td>
-              <td>4/28/2023</td>
-              <td>150</td>
-              <td>A 3D model of the heart and circulatory system</td>
-            </tr>
-            
-    
+            {% endfor %}
           </table>
         </div>
         <div class="col-md-6">
+          <form method="POST" action="{% url 'assignments_view' %}">
             <h5><u>Create a new assignment:</u></h5>
 
             <label for="name">Assignment Name: </label>
@@ -103,7 +76,7 @@
             <label for="class">Select class:</label>
             <select id="class" name="class">
               {% for course in courses %}
-              <option value="{{course.name}}">{{course.name}} {{course.time}}</option>
+              <option value="{{course.name}}">{{course.name}} ({{course.time}})</option>
               {% endfor %}
             </select>
         

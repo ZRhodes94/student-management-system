@@ -42,6 +42,7 @@ class Assignment(models.Model):
     description = models.TextField()
     pointsPossible = models.IntegerField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE, default=0)
+    dueDate = models.DateField()
 
     def __str__(self):
         return self.name
