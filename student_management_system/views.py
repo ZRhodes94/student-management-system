@@ -37,6 +37,7 @@ def assignments_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
     courses = Course.objects.filter(teacher = 1).order_by('time')
     assignments = Assignment.objects.all()
+    assignment_form = AssignmentForm()
     context = {"teacher": teacher, "courses": courses, "assignments":assignments, "assignment_form": assignment_form}
     template = loader.get_template('assignments.html')
     
