@@ -12,8 +12,8 @@ def login_view(request):
     return HttpResponse(template.render())
 
 def home_view(request):
-    teacher = Teacher.objects.filter(name='Zachary Rhodes')
-    courses = Course.objects.filter(id = 1)
+    teacher = Teacher.objects.get(name='Zachary Rhodes')
+    courses = Course.objects.filter(teacher = 1)
     context = {"teacher": teacher, "courses": courses}
     template = loader.get_template('home.html')
     return HttpResponse(template.render(context, request))
