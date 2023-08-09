@@ -51,42 +51,44 @@
                 <li>Complete this item by date</li>
             </ul>
         </div>
+        {% block content %}
         <div class="col-md-6">
           <div class="row">
               <div class="col-md-4 odd" id="template">
               <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">
-              <h3>{{classOne}}</h3>
+              <h3>{{ courses[0] }}</h3>
               <p>{{descriptionOne}}</p>
               </a></div>
             <div class="col-md-4 even" id="template">
               <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{classTwo}}</h3>
+              <h3>{{ courses[1] }}</h3>
                 <p>{{descriptionTwo}}</p></a>
             </div>
             <div class="col-md-4 odd" id="template">
                 <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">
-                <h3>{{classThree}}</h3>
+                <h3>{{ courses[2] }}</h3>
                 <p>{{descriptionThree}}</p></a>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 even" id="template">
               <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{classFour}}</h3>
+              <h3>{{ courses[3] }}</h3>
                 <p>{{descriptionFour}}</p></a>
             </div>
             <div class="col-md-4 odd" id="template">
               <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{classFive}}</h3>
+              <h3>{{ courses[4] }}</h3>
                 <p>{{descriptionFive}}</p></a>
             </div>
             <div class="col-md-4 even" id="template">
               <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{classSix}}</h3>
+              <h3>{{ courses[5] }}</h3>
                 <p>{{descriptionSix}}</p></a>
             </div>
           </div>
         </div>
+        {% endblock %}
         <div class="col-md-3 contact">
             <h3>Contact Form:</h3>
             <form action="action_page.php">
