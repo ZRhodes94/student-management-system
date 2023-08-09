@@ -40,7 +40,7 @@ def assignments_view(request):
 
     if request.method == 'POST':
         form = AssignmentForm(request.POST or None)
-        if form.is_valid()
+        if form.is_valid():
             form.save()
         return HttpResponse(template.render(context, request))
     else:
