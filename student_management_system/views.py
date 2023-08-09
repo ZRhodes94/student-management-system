@@ -19,17 +19,25 @@ def home_view(request):
     return HttpResponse(template.render(context, request))
 
 def contact_view(request):
+    teacher = Teacher.objects.get(name='Zachary Rhodes')
+    context = {"teacher": teacher}
     template = loader.get_template('contact.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context, request))
 
 def class_view(request):
+    teacher = Teacher.objects.get(name='Zachary Rhodes')
+    context = {"teacher": teacher}
     template = loader.get_template('class-info.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context, request))
 
 def assignments_view(request):
+    teacher = Teacher.objects.get(name='Zachary Rhodes')
+    context = {"teacher": teacher}
     template = loader.get_template('assignments.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context, request))
 
 def behavior_view(request):
+    teacher = Teacher.objects.get(name='Zachary Rhodes')
+    context = {"teacher": teacher}
     template = loader.get_template('behavior.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context, request))
