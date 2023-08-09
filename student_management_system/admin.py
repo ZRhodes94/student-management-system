@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course, AssignmentForm
+from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
+from .forms import AssignmentForm
 
 # Register your models here.
 admin.site.register(Teacher)
