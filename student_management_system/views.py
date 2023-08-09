@@ -32,7 +32,9 @@ def class_view(request):
 
 def assignments_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
-    context = {"teacher": teacher}
+    courses = Course.objects.filter(teacher = 1).order_by('time')
+    assignments = Assignment.objects.all()
+    context = {"teacher": teacher, "courses": courses, "assignments":assignments}
     template = loader.get_template('assignments.html')
     return HttpResponse(template.render(context, request))
 

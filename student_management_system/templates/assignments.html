@@ -103,10 +103,9 @@
             <br>
             <label for="class">Select class:</label>
             <select id="class" name="class">
-              <option value="biology">Biology</option>
-              <option value="pbs">Principles of Biomedical Science (PBS)</option>
-              <option value="forensics">Forensics</option>
-              <option value="mi">Medical Interventions (MI)</option>
+              {{% for course in courses %}}
+              <option value="{{course.name}}">{{course.name}}</option>
+              {{% endfor %}}
             </select>
         
             <label for="date">Select the due date:</label><br>
