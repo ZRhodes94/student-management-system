@@ -57,11 +57,11 @@
             </tr>
             {% for assignment in assignments %}
             <tr>
-              <td>assignment.name</td>
-              <td>assignment.course.name</td>
-              <td>assignment.dueDate</td>
-              <td>assignment.pointsPossible</td>
-              <td>assignment.description</td>
+              <td>{{assignment.name}}</td>
+              <td>{{assignment.course.name}}</td>
+              <td>{{assignment.dueDate}}</td>
+              <td>{{assignment.pointsPossible}}</td>
+              <td>{{assignment.description}}</td>
             </tr>
             {% endfor %}
           </table>
