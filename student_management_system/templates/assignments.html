@@ -102,9 +102,9 @@
             <br>
             <label for="class">Select class:</label>
             <select id="class" name="class">
-              {{% for course in courses %}}
+              {% for course in courses %}
               <option value="{{course.name}}">{{course.name}}</option>
-              {{% endfor %}}
+              {% endfor %}
             </select>
         
             <label for="date">Select the due date:</label><br>
