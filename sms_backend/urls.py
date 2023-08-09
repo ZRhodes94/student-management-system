@@ -22,5 +22,5 @@ from django.contrib.auth import views as auth
 urlpatterns = [
     path("", include("student_management_system.urls")),
     path('admin/', admin.site.urls),
-    path('login/', sms_view.login_view, name ='index')
+    path("users/", include("django.contrib.auth.urls")),
 ]

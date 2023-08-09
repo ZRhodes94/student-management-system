@@ -57,7 +57,7 @@ ROOT_URLCONF = 'sms_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'sms_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sms', 
-        'USER': 'postgres',
-        'PASSWORD': '0321',
-        'HOST': '127.0.0.1', 
-        'PORT': '5432',
+        'NAME': env('POSTGRES_DB_NAME'), 
+        'USER': env('POSTGRES_USER'),,
+        'PASSWORD': env('POSTGRES_PASSWORD'),,
+        'HOST': env('POSTGRES_HOST'),, 
+        'PORT': env('POSTGRES_PORT'),,
     }
 }
 
@@ -138,5 +138,5 @@ STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = "home/"
 
