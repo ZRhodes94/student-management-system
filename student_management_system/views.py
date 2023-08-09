@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
+from .forms import AssignmentForm
 
 
 # Create your views here.
@@ -36,7 +37,14 @@ def assignments_view(request):
     assignments = Assignment.objects.all()
     context = {"teacher": teacher, "courses": courses, "assignments":assignments}
     template = loader.get_template('assignments.html')
-    return HttpResponse(template.render(context, request))
+
+    if request.method == 'POST':
+        form = AssignmentForm(request.POST or None)
+        if form.is_valid()
+            form.save()
+        return HttpResponse(template.render(context, request))
+    else:
+        return HttpResponse(template.render(context, request))
 
 def behavior_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
