@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
+
 
 # Create your views here.
 from django.http import HttpResponse
@@ -10,8 +12,11 @@ def login_view(request):
     return HttpResponse(template.render())
 
 def home_view(request):
+    teacher_name = Teacher.objects.filter(name='Zachary Rhodes').values()
+    courses = Course.objects.filter(teacher.name = 'Zachary Rhodes').values()
+    context = {"teacher_name": teacher_name, "courses": courses}
     template = loader.get_template('home.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render(context, request))
 
 def contact_view(request):
     template = loader.get_template('contact.html')
