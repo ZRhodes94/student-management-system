@@ -33,7 +33,6 @@
           <h1>School District Name</h1>
           {% block content %}
           <p>{{ teacher.name }}</p>
-          {% endblock %}
           <br>
         </div>
       </div>
@@ -118,7 +117,8 @@
             <textarea id="description" name="description" placeholder="Describe the assignment here..."></textarea>
         
             <input type="submit" value="Submit">
-        
+            {% endblock %}
+
           </form>
         </div>
       </div>
