@@ -51,42 +51,16 @@
             </ul>
         </div>
         <div class="col-md-6">
+        {% for course in courses %}
           <div class="row">
-              <div class="col-md-4 odd" id="template">
-              <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">
-              <h3>{{ courses[0] }}</h3>
-              <p>{{descriptionOne}}</p>
-              </a></div>
-            <div class="col-md-4 even" id="template">
-              <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{ courses[1] }}</h3>
-                <p>{{descriptionTwo}}</p></a>
-            </div>
-            <div class="col-md-4 odd" id="template">
-                <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">
-                <h3>{{ courses[2] }}</h3>
-                <p>{{descriptionThree}}</p></a>
-            </div>
+            <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;"> 
+              <h3>{{ course.name }}</h3>
+              <p>{{ course.description }}</p>
+            </a>
           </div>
-          <div class="row">
-            <div class="col-md-4 even" id="template">
-              <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{ courses[3] }}</h3>
-                <p>{{descriptionFour}}</p></a>
-            </div>
-            <div class="col-md-4 odd" id="template">
-              <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{ courses[4] }}</h3>
-                <p>{{descriptionFive}}</p></a>
-            </div>
-            <div class="col-md-4 even" id="template">
-              <a href="{% url 'class_view' %}" style="color: black; text-decoration: none;">  
-              <h3>{{ courses[5] }}</h3>
-                <p>{{descriptionSix}}</p></a>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
         {% endblock %}
+       </div>
         <div class="col-md-3 contact">
             <h3>Contact Form:</h3>
             <form action="action_page.php">

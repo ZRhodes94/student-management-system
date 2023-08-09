@@ -13,7 +13,7 @@ def login_view(request):
 
 def home_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
-    courses = Course.objects.filter(teacher = 1)
+    courses = Course.objects.filter(teacher = 1).order_by('time')
     context = {"teacher": teacher, "courses": courses}
     template = loader.get_template('home.html')
     return HttpResponse(template.render(context, request))
