@@ -135,7 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "home/"
 
-django_heroku.settings(locals())
-
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
