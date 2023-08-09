@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Teacher(models.Model):
@@ -42,7 +43,7 @@ class Assignment(models.Model):
     description = models.TextField()
     pointsPossible = models.IntegerField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE, default=0)
-    dueDate = models.DateField()
+    dueDate = models.DateField(default=datetime.date.today)
 
     def __str__(self):
         return self.name
