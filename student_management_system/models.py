@@ -37,7 +37,6 @@ class Behavior(models.Model):
     description = models.TextField()
     interventions = models.TextField()
     student = models.ForeignKey(Student, on_delete=models.CASCADE, default=0)
-    course = models.ForeignKey(Student, on_delete=models.CASCADE, default=0)
     date = models.DateField(default=datetime.date.today)
 
 class Assignment(models.Model):
