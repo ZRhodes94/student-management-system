@@ -40,10 +40,11 @@ class Behavior(models.Model):
 
 class Assignment(models.Model):
     name = models.CharField(max_length=80)
-    description = models.TextField()
-    pointsPossible = models.IntegerField()
     course = models.ForeignKey(Course, on_delete=models.CASCADE, default=0)
     dueDate = models.DateField(default=datetime.date.today)
+    pointsPossible = models.IntegerField()
+    description = models.TextField()
+
 
     def __str__(self):
         return self.name
