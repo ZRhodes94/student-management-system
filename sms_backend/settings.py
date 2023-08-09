@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'sms_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('POSTGRES_DB_NAME'), 
-        'USER': env('POSTGRES_USER'),
-        'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': env('POSTGRES_HOST'), 
-        'PORT': env('POSTGRES_PORT'),
+        'NAME': 'dalfemh8o17bim', 
+        'USER': 'wlkvktncexzmpp',
+        'PASSWORD': '0578f7c3b3a49a82863a42b63f4f3fa655732f91f6910dc3612599a247548534',
+        'HOST': 'ec2-35-169-9-79.compute-1.amazonaws.com', 
+        'PORT': '5432',
     }
 }
 
