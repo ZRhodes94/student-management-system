@@ -70,7 +70,7 @@
           <form method="POST" action="{% url 'assignments_view' %}">
             {% csrf_token %}
             <h5><u>Create a new assignment:</u></h5>
-
+              {{assignment_form}}
             <label for="name">Assignment Name: </label>
             <input id="name" name="name" placeholder="Name of Assignment"></input><br>
             <br>
