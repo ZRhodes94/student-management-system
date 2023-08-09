@@ -46,7 +46,6 @@ class Assignment(models.Model):
     pointsPossible = models.IntegerField()
     description = models.TextField()
 
-
     def __str__(self):
         return self.name
 

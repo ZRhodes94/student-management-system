@@ -42,8 +42,10 @@
         <div class="col-md-3 to-do">
             <h3>Upcoming Assignments:</h3>
             <ul>
-                <li>Complete this item by date</li>
-            </ul>
+            {% for assignment in assignments %}
+              <li>{{assignment.name}} DUE: {{assignment.dueDate}}</li>
+            {% endfor %}
+          </ul>
         </div>
         <div class="col-md-6">
         {% for course in courses %}
