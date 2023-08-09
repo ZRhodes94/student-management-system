@@ -70,22 +70,21 @@
           <form method="POST" action="{% url 'assignments_view' %}">
             {% csrf_token %}
             <h5><u>Create a new assignment:</u></h5>
-              {{assignment_form}}
             <label for="name">Assignment Name: </label>
             <input id="name" name="name" placeholder="Name of Assignment"></input><br>
             <br>
             <label for="class">Select class:</label>
-            <select id="class" name="class">
+            <select id="class" name="course">
               {% for course in courses %}
               <option value="{{course.id}}">{{course.name}} ({{course.time}})</option>
               {% endfor %}
             </select>
         
             <label for="date">Select the due date:</label><br>
-            <input type="date" id="date"name="date">
+            <input type="date" id="date"name="dueDate">
             <br><br>
             <label for="points">Possible Points:</label><br>
-            <input id="points" name="points" placeholder="Number of possible points"></input>
+            <input id="points" name="pointsPossible" placeholder="Number of possible points"></input>
             <br><br>
             <label for="description">Assignment Description:</label><br>
             <textarea id="description" name="description" placeholder="Describe the assignment here..."></textarea>
