@@ -4,4 +4,4 @@ from .models import Assignment, Teacher, Student, Behavior, Course, Grade, Paren
 class AssignmentForm(forms.ModelForm):
     class Meta:
         model = Assignment
-        field = ['name', 'description', 'pointsPossible', 'course', 'dueDate']
+        fields = ['name', 'course', 'dueDate', 'pointsPossible', 'description']
