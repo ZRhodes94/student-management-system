@@ -20,7 +20,7 @@ from student_management_system import views as sms_view
 from django.contrib.auth import views as auth
 
 urlpatterns = [
-    path("", include("student_management_system.urls")),
     path('admin/', admin.site.urls),
+    path("", include("student_management_system.urls")),
     path("users/", include("django.contrib.auth.urls")),
 ]
