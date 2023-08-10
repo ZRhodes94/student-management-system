@@ -70,7 +70,8 @@ def behavior_view(request):
         return HttpResponse(template.render(context, request))
     
 def delete_assignment(request, id):
-    member = Assignment.objects.get(id=id)
-    member.delete()
+    assignment = Assignment.objects.get(id=id)
+    assignment.delete()
+    context = {"assignment": assignment}
     template = loader.get_template('assignments.html')
-    return HttpResponse(template.render(request))
+    return HttpResponse(template.render(context, request))
