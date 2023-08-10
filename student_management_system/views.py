@@ -30,8 +30,9 @@ def contact_view(request):
 def class_view(request, id):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
     students = Student.objects.filter(courses=id)
+    assignments = Assignment.objects.filter(course=id)
     grades = Grade.objects.all()
-    context = {"teacher": teacher, "grades": grades, "students": students}
+    context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments}
     context["course"] = Course.objects.get(id = id)
     template = loader.get_template('class-info.html')
     return HttpResponse(template.render(context, request))
