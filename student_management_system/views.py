@@ -31,7 +31,7 @@ def class_view(request, id):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
     students = Student.objects.filter(courses=id)
     assignments = Assignment.objects.filter(course=id)
-    grades = Grade.objects.all().order_by('student')
+    grades = Grade.objects.filter(assignment_course_id=id).order_by('student')
     context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments}
     context["course"] = Course.objects.get(id = id)
     template = loader.get_template('class-info.html')
