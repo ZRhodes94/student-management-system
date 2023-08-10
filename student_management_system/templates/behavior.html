@@ -48,6 +48,8 @@
           <th>Date and Time</th>
           <th>Description</th>
           <th>Interventions</th>
+          <td>Edit</td>
+          <td>Delete</td>
         </tr>
         {% for behavior in behaviors %}
         <tr>
@@ -55,6 +57,8 @@
           <td>{{behavior.date}}</td>
           <td>{{behavior.description}}</td>
           <td>{{behavior.interventions}}</td>
+          <td>Edit</td>
+          <td><a href="{% url 'delete_behavior_view' behavior.id %}">Delete</a></td>
         </tr>
         {% endfor %}
       </table>

@@ -75,3 +75,10 @@ def delete_assignment(request, id):
     context = {"assignment": assignment}
     template = loader.get_template('assignments.html')
     return HttpResponse(template.render(context, request))
+
+def delete_behavior(request, id):
+    behavior = Behavior.objects.get(id=id)
+    behavior.delete()
+    context = {"behavior": behavior}
+    template = loader.get_template('behavior.html')
+    return HttpResponse(template.render(context, request))
