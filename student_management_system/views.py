@@ -55,6 +55,7 @@ def assignments_view(request):
 def behavior_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
     behaviors = Behavior.objects.all()
+    students = Student.objects.all()
     context = {"teacher": teacher, "behaviors": behaviors}
     template = loader.get_template('behavior.html')
     return HttpResponse(template.render(context, request))
