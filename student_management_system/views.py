@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
-from .forms import AssignmentForm, BehaviorForm, GradeForm
+from .forms import AssignmentForm, BehaviorForm, GradeForm, ContactForm
 
 
 
@@ -22,10 +22,17 @@ def home_view(request):
     return HttpResponse(template.render(context, request))
 
 def contact_view(request):
-    teacher = Teacher.objects.get(name='Zachary Rhodes')
-    context = {"teacher": teacher}
+    if request.method == "GET":
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data["subject"]
+            from_email = form.cleaned_data["from_email"]
+            message = form.cleaned_data['message']
+            send_mail(subject, message, from_email, ["admin@example.com"])
     template = loader.get_template('contact.html')
-    return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render({"form": form}), request))
 
 def class_view(request, id):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
