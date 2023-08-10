@@ -33,150 +33,21 @@
           <h1>School District Name</h1>
           {% block content %}
           <p>{{ teacher.name }}</p>
-          {% endblock %}
           <p>{{course.name}}</p>
           <br>
         </div>
       </div>
       <div class="row">
       <div class="col-md-8">
-        <table style="text-align: center; width: 100%;">
-          <caption style="caption-side: top; color: black;"><h5><u>Attendance and Grades:</u></h5></caption>
-          <colgroup>
-            <col/>
-            <col style="background-color: #A7D2FF;" />
-            <col/>
-            <col style="background-color: #A7D2FF;" />
-            <col/>
-            <col style="background-color: #A7D2FF;" />
-            <col/>
-            <col style="background-color: #A7D2FF;" />
-            <col/>
-          </colgroup>
-          <tr style="background-color: #007DFF;">
-            <th>Student Name</th>
-            <th>ID Number</th>
-            <th>Attendance</th>
-            <th>Grade</th>
-            <th>Assignment 1</th>
-            <th>Assignment 2</th>
-            <th>Assignment 3</th>
-            <th>Assignment 4</th>
-            <th>Assignment 5</th>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>1</td>
-            <td>P</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>2</td>
-            <td>P</td>
-            <td>90</td>
-            <td>90</td>
-            <td>90</td>
-            <td>90</td>
-            <td>90</td>
-            <td>90</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>3</td>
-            <td>A</td>
-            <td>80</td>
-            <td>80</td>
-            <td>80</td>
-            <td>80</td>
-            <td>80</td>
-            <td>80</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>4</td>
-            <td>P</td>
-            <td>70</td>
-            <td>70</td>
-            <td>70</td>
-            <td>70</td>
-            <td>70</td>
-            <td>70</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>5</td>
-            <td>P</td>
-            <td>85</td>
-            <td>85</td>
-            <td>85</td>
-            <td>85</td>
-            <td>85</td>
-            <td>85</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>6</td>
-            <td>P</td>
-            <td>75</td>
-            <td>75</td>
-            <td>75</td>
-            <td>75</td>
-            <td>75</td>
-            <td>75</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>7</td>
-            <td>P</td>
-            <td>95</td>
-            <td>95</td>
-            <td>95</td>
-            <td>95</td>
-            <td>95</td>
-            <td>95</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>8</td>
-            <td>A</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>9</td>
-            <td>A</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-            <td>60</td>
-          </tr>
-          <tr>
-            <td>Student Name</td>
-            <td>10</td>
-            <td>P</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-          </tr>
-          
-  
-        </table>
+        {% for student in students %}
+        {{student.name}}
+        <ul>
+          {% for assignment in assignments %}
+          {{assignment.name}}
+          <li>{{assignment.pointsPossible}}</li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
       </div>
       <div class="col-md-4">
         <div class="contact">
@@ -196,6 +67,6 @@
       </div>
       </div>
       
-      
+      {% endblock %}
 </body>
 </html>
