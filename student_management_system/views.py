@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
-from .forms import AssignmentForm, BehaviorForm
+from .forms import AssignmentForm, BehaviorForm, GradeForm
 
 
 
