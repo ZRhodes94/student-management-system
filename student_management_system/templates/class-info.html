@@ -55,15 +55,19 @@
               <th>Points Earned</th>
               <th>Grade</th>
             </tr>
-            {% for grade in grades %}
-            <tr>
-              <td>{{grade.student.name}}</td>
-              <td>{{grade.assignment.name}}</td>
-              <td>{{grade.assignment.pointsPossible}}</td>
-              <td>{{grade.pointsEarned}}</td>
-              <td>{{grade.pointsEarned}}/{{grade.assignment.pointsPossible}}</td>
-            </tr>
-            {% endfor %}
+            {% if grades %}
+              {% for grade in grades %}
+              <tr>
+                <td>{{grade.student.name}}</td>
+                <td>{{grade.assignment.name}}</td>
+                <td>{{grade.assignment.pointsPossible}}</td>
+                <td>{{grade.pointsEarned}}</td>
+                <td>{{grade.pointsEarned}}/{{grade.assignment.pointsPossible}}</td>
+              </tr>
+              {% endfor %}
+            {% else %}
+              <h5>No Grades to Display</h5>
+            {% end if %}
           </table>
         </ul>
       </div>
