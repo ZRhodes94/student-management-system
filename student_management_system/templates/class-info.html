@@ -40,12 +40,30 @@
       <div class="row">
       <div class="col-md-8">
         {% for student in students %}
-        {{student.name}}
         <ul>
-          {% for assignment in assignments %}
-          {{assignment.name}}
-          <li>{{assignment.pointsPossible}}</li>
-          {% endfor %}
+          <table style="text-align: center; width: 100%;">
+            <caption style="caption-side: top; color: black;"><h5><u>Assignments for {{student.name}}:</u></h5></caption>
+            <colgroup>
+              <col/>
+              <col style="background-color: #A7D2FF;" />
+              <col/>
+              <col style="background-color: #A7D2FF;" />
+            </colgroup>
+            <tr style="background-color: #007DFF;">
+              <th>Assignment Name</th>
+              <th>Points Possible</th>
+              <th>Points Earned</th>
+              <th>Grade</th>
+            </tr>
+            {% for assignment in assignments %}
+            <tr>
+              <td>{{assignment.name}}</td>
+              <td>{{assignment.pointsPossible}}</td>
+              <td>earned</td>
+              <td>grade</td>
+            </tr>
+            {% endfor %}
+          </table>
         </ul>
         {% endfor %}
       </div>
