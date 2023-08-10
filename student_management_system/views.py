@@ -35,7 +35,14 @@ def class_view(request, id):
     context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments}
     context["course"] = Course.objects.get(id = id)
     template = loader.get_template('class-info.html')
-    return HttpResponse(template.render(context, request))
+    
+    if request.method == 'POST':
+        form = GradeForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+        return HttpResponse(template.render(context, request))
+    else:
+        return HttpResponse(template.render(context, request))
 
 def assignments_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')

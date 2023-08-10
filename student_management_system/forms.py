@@ -10,3 +10,8 @@ class BehaviorForm(forms.ModelForm):
     class Meta:
         model = Behavior
         fields = ['description', 'interventions', 'student', 'date']
+
+class GradeForm(forms.ModelForm):
+    class Meta:
+        model = Grade
+        fields = ['pointsEarned', 'assignment', 'student']
