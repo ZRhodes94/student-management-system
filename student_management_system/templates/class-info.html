@@ -33,37 +33,36 @@
           <h1>School District Name</h1>
           {% block content %}
           <p>{{ teacher.name }}</p>
-          <p>{{course.name}}</p>
           <br>
         </div>
       </div>
       <div class="row">
       <div class="col-md-8">
-        {% for student in students %}
         <ul>
           <table style="text-align: center; width: 100%;">
-            <caption style="caption-side: top; color: black;"><h5><u>Grades for {{student.name}}:</u></h5></caption>
+            <caption style="caption-side: top; color: black;"><h5><u>Grades for {{course.name}}:</u></h5></caption>
             <colgroup>
               <col/>
               <col style="background-color: #A7D2FF;" />
               <col/>
               <col style="background-color: #A7D2FF;" />
+              <col/>
             </colgroup>
             <tr style="background-color: #007DFF;">
+              <th>Student Name</th>
               <th>Assignment Name</th>
               <th>Points Possible</th>
               <th>Points Earned</th>
               <th>Grade</th>
             </tr>
             {% for grade in grades %}
-              {% if grade.student = student.id %}
-              <tr>
-                <td>{{grade.assignment.name}}</td>
-                <td>{{grade.assignment.pointsPossible}}</td>
-                <td>{{grade.pointsEarned}}</td>
-                <td>{{grade.pointsEarned}}/{{grade.assignment.pointsPossible}}</td>
-              </tr>
-              {% endif %}
+            <tr>
+              <td>{{grade.student.name}}</td>
+              <td>{{grade.assignment.name}}</td>
+              <td>{{grade.assignment.pointsPossible}}</td>
+              <td>{{grade.pointsEarned}}</td>
+              <td>{{grade.pointsEarned}}/{{grade.assignment.pointsPossible}}</td>
+            </tr>
             {% endfor %}
           </table>
         </ul>
