@@ -56,7 +56,7 @@
               <th>Grade</th>
             </tr>
             {% for grade in grades %}
-              {% if grade.student == student.id %}
+              {% if grade.student = student.id %}
               <tr>
                 <td>{{grade.assignment.name}}</td>
                 <td>{{grade.assignment.pointsPossible}}</td>
