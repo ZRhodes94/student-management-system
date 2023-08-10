@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
-from .forms import AssignmentForm
-from django.contrib import messages
+from .forms import AssignmentForm, BehaviorForm
 
 
 
@@ -46,10 +45,8 @@ def assignments_view(request):
         form = AssignmentForm(request.POST or None)
         if form.is_valid():
             form.save()
-            messages.success(request, ('Your assignment was successfully added!'))
         return HttpResponse(template.render(context, request))
     else:
-        messages.error(request, 'Error saving assignment.')
         return HttpResponse(template.render(context, request))
     
 def behavior_view(request):
@@ -58,4 +55,11 @@ def behavior_view(request):
     students = Student.objects.all()
     context = {"teacher": teacher, "behaviors": behaviors, "students": students}
     template = loader.get_template('behavior.html')
-    return HttpResponse(template.render(context, request))
+    
+    if request.method == 'POST':
+        form = BehaviorForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+        return HttpResponse(template.render(context, request))
+    else:
+        return HttpResponse(template.render(context, request))

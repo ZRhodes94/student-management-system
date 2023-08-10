@@ -62,7 +62,8 @@
       </table>
       <br>
     <div class="container">
-      <form>
+      <form method="POST" action="{% url 'behavior_view' %}">
+        {% csrf_token %}
         <h5><u>Create a new referral:</u></h5>
 
         <label for="student">Student</label>
@@ -73,7 +74,7 @@
         </select>
     
         <label for="date-time">Select the date of the incident:</label>
-        <input type="datetime-local" id="date-time"name="date">
+        <input type="date" id="date" name="date">
         <br>
         <textarea id="description" name="description" placeholder="Describe the incident here..."></textarea>
         <br>
