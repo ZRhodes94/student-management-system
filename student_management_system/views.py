@@ -21,12 +21,6 @@ def home_view(request):
     template = loader.get_template('home.html')
     return HttpResponse(template.render(context, request))
 
-def contact_view(request):
-    teacher = Teacher.objects.get(name='Zachary Rhodes')
-    context = {"teacher": teacher}
-    template = loader.get_template('contact.html')
-    return HttpResponse(template.render(context, request))
-
 def class_view(request, id):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
     students = Student.objects.filter(courses=id)
