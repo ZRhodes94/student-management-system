@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm, BehaviorForm, GradeForm
 
 
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
 
@@ -68,3 +68,9 @@ def behavior_view(request):
         return HttpResponse(template.render(context, request))
     else:
         return HttpResponse(template.render(context, request))
+    
+def delete_assignment(request, id):
+    member = Assignment.objects.get(id=id)
+    member.delete()
+    template = loader.get_template('assignments.html')
+    return HttpResponse(template.render(request))

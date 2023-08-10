@@ -22,7 +22,6 @@
             <a class="nav-option" href="{% url 'assignments_view' %}">Assignments</a>
             <p style="display: inline-block">&nbsp&nbsp</p>
             <a class="nav-option" href="{% url 'behavior_view' %}">Behavior</a>
-
           </div>
         </div>
       </nav>
@@ -53,6 +52,8 @@
               <th>Due Date</th>
               <th>Points Possible</th>
               <th>Description</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
             {% for assignment in assignments %}
             <tr>
@@ -61,6 +62,8 @@
               <td>{{assignment.dueDate}}</td>
               <td>{{assignment.pointsPossible}}</td>
               <td>{{assignment.description}}</td>
+              <td>Edit</td>
+              <td><a href="{% url 'delete_assignments_view' assignment.id %}">Delete</a></td>
             </tr>
             {% endfor %}
           </table>
