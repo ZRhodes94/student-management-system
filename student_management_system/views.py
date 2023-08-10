@@ -27,9 +27,10 @@ def contact_view(request):
     template = loader.get_template('contact.html')
     return HttpResponse(template.render(context, request))
 
-def class_view(request):
+def class_view(request, id):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
     context = {"teacher": teacher}
+    context["data"] = Course.objects.get(id = id)
     template = loader.get_template('class-info.html')
     return HttpResponse(template.render(context, request))
 
