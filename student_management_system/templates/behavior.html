@@ -33,7 +33,6 @@
           <h1>School District Name</h1>
           {% block content %}
           <p>{{ teacher.name }}</p>
-          {% endblock %}
           <br>
         </div>
       </div>
@@ -45,22 +44,21 @@
           <col style="background-color: #A7D2FF;" />
           <col/>
           <col style="background-color: #A7D2FF;" />
-          <col/>
         </colgroup>
         <tr style="background-color: #007DFF;">
           <th>Student Name</th>
           <th>Date and Time</th>
-          <th>Class Period</th>
-          <th>Teacher Name</th>
           <th>Description</th>
+          <th>Interventions</th>
         </tr>
+        {% for behavior in behaviors %}
         <tr>
-          <td>Student 1</td>
-          <td>4/21/2023 9:05 AM</td>
-          <td>Biology</td>
-          <td>Teacher 1</td>
-          <td>Student was insubordinate to teacher</td>
+          <td>{{behavior.student.name}}</td>
+          <td>{{behavior.date}}</td>
+          <td>{{behavior.description}}</td>
+          <td>{{behavior.interventions}}</td>
         </tr>
+        {% endfor %}
         <tr>
           <td>Student 2</td>
           <td>4/21/2023 9:05 AM</td>
@@ -126,6 +124,7 @@
         <input type="submit" value="Submit">
     
       </form>
+      {% endblock %}
     </div>
 </body>
 </html>

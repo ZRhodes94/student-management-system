@@ -41,8 +41,6 @@ def assignments_view(request):
     assignment_form = AssignmentForm()
     context = {"teacher": teacher, "courses": courses, "assignments":assignments, "assignment_form": assignment_form}
     template = loader.get_template('assignments.html')
-    
-
 
     if request.method == 'POST':
         form = AssignmentForm(request.POST or None)
@@ -56,6 +54,7 @@ def assignments_view(request):
     
 def behavior_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
-    context = {"teacher": teacher}
+    behaviors = Behavior.objects.all()
+    context = {"teacher": teacher, "behaviors": behaviors}
     template = loader.get_template('behavior.html')
     return HttpResponse(template.render(context, request))
