@@ -41,12 +41,39 @@
       <h5><u>Create a Student and Parent Contact:</u></h5><br>
       
       <div class="container">
-        <form method="POST">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <div class="form-actions">
-            <button type="submit">Send</button>
-          </div>
+      
+          <label for="class">Class</label>
+          <select id="class" name="class">
+            <option value="biology">Biology</option>
+            <option value="pbs">Principles of Biomedical Science (PBS)</option>
+            <option value="forensics">Forensics</option>
+            <option value="mi">Medical Interventions (MI)</option>
+          </select>
+
+          <label for="student">Student</label>
+          <select id="student" name="student">
+            <option value="one">Student Name 1</option>
+            <option value="two">Student Name 2</option>
+            <option value="three">Student Name 3</option>
+            <option value="four">Student Name 4</option>
+            <option value="four">Student Name 5</option>
+            <option value="one">Student Name 6</option>
+            <option value="two">Student Name 7</option>
+            <option value="three">Student Name 8</option>
+            <option value="four">Student Name 9</option>
+            <option value="four">Student Name 10</option>
+          </select>
+      
+          <label for="subject">Subject: </label>
+          <input id="subject" name="subject" placeholder="Subject of Message"></input>
+
+          <input type="checkbox" id="parents" name="parents" value="parents">
+          <label for="parents">Include parents?</label>
+
+          <textarea id="body" name="body" placeholder="Type your message here..."></textarea>
+      
+          <input type="submit" value="Submit">
+      
         </form>
       </div>
     

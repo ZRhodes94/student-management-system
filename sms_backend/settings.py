@@ -135,8 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "home/"
 
-DEFAULT_FROM_EMAIL = "zrhodes@titanschools.edu"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
