@@ -42,7 +42,7 @@
         {% for student in students %}
         <ul>
           <table style="text-align: center; width: 100%;">
-            <caption style="caption-side: top; color: black;"><h5><u>Assignments for {{student.name}}:</u></h5></caption>
+            <caption style="caption-side: top; color: black;"><h5><u>Grades for {{student.name}}:</u></h5></caption>
             <colgroup>
               <col/>
               <col style="background-color: #A7D2FF;" />
@@ -55,12 +55,12 @@
               <th>Points Earned</th>
               <th>Grade</th>
             </tr>
-            {% for assignment in assignments %}
+            {% for grade in grades %}
             <tr>
-              <td>{{assignment.name}}</td>
-              <td>{{assignment.pointsPossible}}</td>
-              <td>earned</td>
-              <td>grade</td>
+              <td>{{grade.assignment.name}}</td>
+              <td>{{grade.assignment.pointsPossible}}</td>
+              <td>{{grade.pointsEarned}}</td>
+              <td>{{grade.pointsEarned}}/{{grade.assignment.pointsPossible}}</td>
             </tr>
             {% endfor %}
           </table>
