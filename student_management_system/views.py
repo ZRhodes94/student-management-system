@@ -86,3 +86,24 @@ def delete_grade(request, course_id, grade_id):
     grade.delete()
     
     return HttpResponseRedirect(reverse('class_view', kwargs={'id': course_id}))
+
+def edit_assignment(request, id):
+    assignment = Assignment.objects.get(id=id)
+    context = {"assignment": assignment}
+    template = loader.get_template('assignment_edit.html')
+
+    return HttpResponse(template.render(context, request))
+
+def edit_behavior(request, id):
+    behavior = Behavior.objects.get(id=id)
+    context = {"behavior": behavior}
+    template = loader.get_template('behavior_edit.html')
+
+    return HttpResponse(template.render(context, request))
+
+def edit_grade(request, course_id, grade_id):
+    grade = Grade.objects.get(id=grade_id)
+    context = {"grade": grade}
+    template = loader.get_template('class-info_edit.html')
+    
+    return HttpResponse(template.render(context, request))

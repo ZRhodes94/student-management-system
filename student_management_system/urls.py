@@ -11,4 +11,8 @@ urlpatterns = [
     path("assignments/delete/<int:id>", views.delete_assignment, name="delete_assignments_view"),
     path("behavior/delete/<int:id>", views.delete_behavior, name="delete_behavior_view"),
     path("class/<int:course_id>/grade/delete/<int:grade_id>", views.delete_grade, name="delete_grade_view"),
+    path("assignments/edit/<int:id>", views.edit_assignment, name="edit_assignments_view"),
+    path("behavior/edit/<int:id>", views.edit_behavior, name="edit_behavior_view"),
+    path("class/<int:course_id>/grade/edit/<int:grade_id>", views.edit_grade, name="edit_grade_view"),
+    
 ]

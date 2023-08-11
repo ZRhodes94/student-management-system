@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'custom.css' %}" rel="stylesheet">
+    <title>Student Management System</title>
+</head>
+<body onLoad="renderClasses()">
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img role="img" aria-label="Titan Student Solutions logo" src="{% static 'TSSlogo.png' %}" style="height:100px; margin: 0; padding: 0;"></a>
+          </div>
+          <div>
+            <a class="nav-option" href="{% url 'home_view' %}">Home</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'assignments_view' %}">Assignments</a>
+            <p style="display: inline-block">&nbsp&nbsp</p>
+            <a class="nav-option" href="{% url 'behavior_view' %}">Behavior</a>
+          </div>
+        </div>
+      </nav>
+      
+      <div>
+        <div class="container">
+          <h1>School District Name</h1>
+          {% block content %}
+          <p>{{ teacher.name }}</p>
+          <br>
+        </div>
+      </div>
+      
+      <table style="text-align: center; width: 100%;">
+        <caption style="caption-side: top; color: black;"><h5><u>Current behavioral referrals:</u></h5></caption>
+        <colgroup>
+          <col/>
+          <col style="background-color: #A7D2FF;" />
+          <col/>
+          <col style="background-color: #A7D2FF;" />
+        </colgroup>
+        <tr style="background-color: #007DFF;">
+          <th>Student Name</th>
+          <th>Date and Time</th>
+          <th>Description</th>
+          <th>Interventions</th>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+        {% for behavior in behaviors %}
+        <tr>
+          <td>{{behavior.student.name}}</td>
+          <td>{{behavior.date}}</td>
+          <td>{{behavior.description}}</td>
+          <td>{{behavior.interventions}}</td>
+          <td>Edit</td>
+          <td><a href="{% url 'delete_behavior_view' behavior.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br>
+    <div class="container">
+      <form method="POST" action="{% url 'behavior_view' %}">
+        {% csrf_token %}
+        <h5><u>Create a new referral:</u></h5>
+
+        <label for="student">Student</label>
+        <select id="student" name="student">
+        {% for student in students %}
+          <option value="{{student.id}}">{{student.name}}</option>
+        {% endfor %}
+        </select>
+    
+        <label for="date-time">Select the date of the incident:</label>
+        <input type="date" id="date" name="date">
+        <br>
+        <textarea id="description" name="description" placeholder="Describe the incident here..."></textarea>
+        <br>
+        <textarea id="interventions" name="interventions" placeholder="Describe the interventions used here..."></textarea>
+    
+        <input type="submit" value="Submit">
+    
+      </form>
+      {% endblock %}
+    </div>
+</body>
+</html>

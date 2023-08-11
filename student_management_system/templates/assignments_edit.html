@@ -36,46 +36,12 @@
       </div>
       
       <div class="row">
-        <div class="col-md-6">
-          <table style="text-align: center; width: 100%;">
-            <caption style="caption-side: top; color: black;"><h5><u>Current assignments:</u></h5></caption>
-            <colgroup>
-              <col/>
-              <col style="background-color: #A7D2FF;" />
-              <col/>
-              <col style="background-color: #A7D2FF;" />
-              <col/>
-              <col style="background-color: #A7D2FF;" />
-              <col/>
-            </colgroup>
-            <tr style="background-color: #007DFF;">
-              <th>Assignment Name</th>
-              <th>Class Assigned</th>
-              <th>Due Date</th>
-              <th>Points Possible</th>
-              <th>Description</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-            {% for assignment in assignments %}
-            <tr>
-              <td>{{assignment.name}}</td>
-              <td>{{assignment.course.name}}</td>
-              <td>{{assignment.dueDate}}</td>
-              <td>{{assignment.pointsPossible}}</td>
-              <td>{{assignment.description}}</td>
-              <td><a href="{% url 'edit_assignments_view' assignment.id %}">Edit</a></td>
-              <td><a href="{% url 'delete_assignments_view' assignment.id %}">Delete</a></td>
-            </tr>
-            {% endfor %}
-          </table>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
           <form method="POST" action="{% url 'assignments_view' %}">
             {% csrf_token %}
             <h5><u>Create a new assignment:</u></h5>
             <label for="name">Assignment Name: </label>
-            <input id="name" name="name" placeholder="Name of Assignment"></input><br>
+            <input id="name" name="name" placeholder="Name of Assignment" value="{{assignment.name}}"></input><br>
             <br>
             <label for="class">Select class:</label>
             <select id="class" name="course">
@@ -85,13 +51,13 @@
             </select>
         
             <label for="date">Select the due date:</label><br>
-            <input type="date" id="date"name="dueDate">
+            <input type="date" id="date"name="dueDate" value="{{assignment.dueDate}}">
             <br><br>
             <label for="points">Possible Points:</label><br>
-            <input id="points" name="pointsPossible" placeholder="Number of possible points"></input>
+            <input id="points" name="pointsPossible" placeholder="Number of possible points" value="{{assignment.pointsPossible}}"></input>
             <br><br>
             <label for="description">Assignment Description:</label><br>
-            <textarea id="description" name="description" placeholder="Describe the assignment here..."></textarea>
+            <textarea id="description" name="description" placeholder="Describe the assignment here..." value="{{assignment.description}}"></textarea>
         
             <input type="submit" value="Submit">
             {% endblock %}
