@@ -45,6 +45,8 @@
               <col/>
               <col style="background-color: #A7D2FF;" />
               <col/>
+              <col style="background-color: #A7D2FF;" />
+              <col/>
             </colgroup>
             <tr style="background-color: #007DFF;">
               <th>Student Name</th>
@@ -52,6 +54,8 @@
               <th>Points Possible</th>
               <th>Points Earned</th>
               <th>Grade</th>
+              <td>Edit</td>
+              <td>Delete</td>
             </tr>
             {% if grades %}
               {% for grade in grades %}
@@ -61,6 +65,8 @@
                 <td>{{grade.assignment.pointsPossible}}</td>
                 <td>{{grade.pointsEarned}}</td>
                 <td>{{grade.pointsEarned}}/{{grade.assignment.pointsPossible}}</td>
+                <td>Edit</td>
+                <td><a href="{% url 'delete_grade_view' grade.id %}">Delete</a></td>
               </tr>
               {% endfor %}
             {% else %}

@@ -73,13 +73,14 @@ def behavior_view(request):
 def delete_assignment(request, id):
     assignment = Assignment.objects.get(id=id)
     assignment.delete()
-    context = {"assignment": assignment}
-    template = loader.get_template('assignments.html')
     return HttpResponseRedirect(reverse('assignments_view'))
 
 def delete_behavior(request, id):
     behavior = Behavior.objects.get(id=id)
     behavior.delete()
-    context = {"behavior": behavior}
-    template = loader.get_template('behavior.html')
     return HttpResponseRedirect(reverse('behavior_view'))
+
+def delete_grade(request, id):
+    grade = Grade.objects.get(id=id)
+    grade.delete()
+    return HttpResponseRedirect(reverse('class_view'))
