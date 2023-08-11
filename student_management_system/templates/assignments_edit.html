@@ -51,7 +51,7 @@
             </select>
         
             <label for="date">Select the due date:</label><br>
-            <input type="date" id="date"name="dueDate" value="{{assignment.dueDate|date:"YYYY-MM-DD" }}">
+            <input type="date" id="date"name="dueDate"> Previously: {{assignment.dueDate}}
             <br><br>
             <label for="points">Possible Points:</label><br>
             <input id="points" name="pointsPossible" placeholder="Number of possible points" value="{{assignment.pointsPossible}}"></input>

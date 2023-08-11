@@ -97,7 +97,8 @@ def edit_assignment(request, id):
 
 def edit_behavior(request, id):
     behavior = Behavior.objects.get(id=id)
-    context = {"behavior": behavior}
+    students = Student.objects.all()
+    context = {"behavior": behavior, "students": students}
     template = loader.get_template('behavior_edit.html')
 
     return HttpResponse(template.render(context, request))
@@ -124,3 +125,18 @@ def updaterecord_assignment(request, id):
   assignment.description = description
   assignment.save()
   return HttpResponseRedirect(reverse('assignments_view'))
+
+def updaterecord_behavior(request, id):
+    student_id = request.POST['name']
+    date = request.POST['date']
+    description = request.POST['description']
+    interventions = request.POST['interventions']
+    student = Student.objects.get(id=student_id)
+    behavior = Behavior.objects.get(id=id)
+    behavior.student = student
+    behavior.date = date
+    behavior.description = description
+    behavior.interventions = interventions
+
+    behavior.save()
+    return HttpResponseRedirect(reverse('behavior_view'))

@@ -35,36 +35,8 @@
         </div>
       </div>
       
-      <table style="text-align: center; width: 100%;">
-        <caption style="caption-side: top; color: black;"><h5><u>Current behavioral referrals:</u></h5></caption>
-        <colgroup>
-          <col/>
-          <col style="background-color: #A7D2FF;" />
-          <col/>
-          <col style="background-color: #A7D2FF;" />
-        </colgroup>
-        <tr style="background-color: #007DFF;">
-          <th>Student Name</th>
-          <th>Date and Time</th>
-          <th>Description</th>
-          <th>Interventions</th>
-          <td>Edit</td>
-          <td>Delete</td>
-        </tr>
-        {% for behavior in behaviors %}
-        <tr>
-          <td>{{behavior.student.name}}</td>
-          <td>{{behavior.date}}</td>
-          <td>{{behavior.description}}</td>
-          <td>{{behavior.interventions}}</td>
-          <td>Edit</td>
-          <td><a href="{% url 'delete_behavior_view' behavior.id %}">Delete</a></td>
-        </tr>
-        {% endfor %}
-      </table>
-      <br>
     <div class="container">
-      <form method="POST" action="{% url 'behavior_view' %}">
+      <form method="POST" action="{% url 'updaterecord_behavior' behavior.id %}">
         {% csrf_token %}
         <h5><u>Create a new referral:</u></h5>
 
@@ -76,11 +48,11 @@
         </select>
     
         <label for="date-time">Select the date of the incident:</label>
-        <input type="date" id="date" name="date">
+        <input type="date" id="date" name="date"> Previously: {{behavior.date}}
         <br>
-        <textarea id="description" name="description" placeholder="Describe the incident here..."></textarea>
+        <textarea id="description" name="description" placeholder="Describe the incident here...">{{behavior.description}}</textarea>
         <br>
-        <textarea id="interventions" name="interventions" placeholder="Describe the interventions used here..."></textarea>
+        <textarea id="interventions" name="interventions" placeholder="Describe the interventions used here...">{{behavior.interventions}}</textarea>
     
         <input type="submit" value="Submit">
     
