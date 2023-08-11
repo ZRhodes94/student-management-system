@@ -111,10 +111,11 @@ def edit_grade(request, course_id, grade_id):
 
 def updaterecord_assignment(request, id):
   name = request.POST['name']
-  course = request.POST['course']
+  course_id = request.POST['course']
   dueDate = request.POST['dueDate']
   pointsPossible = request.POST['pointsPossible']
   description = request.POST['description']
+  course = Course.objects.get(id=course_id)
   assignment = Assignment.objects.get(id=id)
   assignment.name = name
   assignment.course = course
