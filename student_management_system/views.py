@@ -81,7 +81,7 @@ def delete_behavior(request, id):
     behavior.delete()
     return HttpResponseRedirect(reverse('behavior_view'))
 
-def delete_grade(request, id, course_id):
+def delete_grade(request, id):
     grade = Grade.objects.get(id=id)
     grade.delete()
 
