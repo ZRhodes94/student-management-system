@@ -140,3 +140,17 @@ def updaterecord_behavior(request, id):
 
     behavior.save()
     return HttpResponseRedirect(reverse('behavior_view'))
+
+def updaterecord_behavior(request, course_id, grade_id):
+    student_id = request.POST['student']
+    assignment_id = request.POST['assignment']
+    pointsEarned = request.POST['pointsEarned']
+    student = Student.objects.get(id=student_id)
+    assignment = Assignment.objects.get(id=assignment_id)
+    grade = Grade.objects.get(id=grade_id)
+    grade.student = student
+    grade.assignment = assignment
+    grade.pointsEarned = pointsEarned
+
+    grade.save()
+    return HttpResponseRedirect(reverse('class_view', kwargs={'id': course_id}))
