@@ -127,7 +127,7 @@ def updaterecord_assignment(request, id):
   return HttpResponseRedirect(reverse('assignments_view'))
 
 def updaterecord_behavior(request, id):
-    student_id = request.POST['name']
+    student_id = request.POST['student']
     date = request.POST['date']
     description = request.POST['description']
     interventions = request.POST['interventions']
