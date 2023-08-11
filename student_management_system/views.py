@@ -92,7 +92,13 @@ def edit_assignment(request, id):
     context = {"assignment": assignment}
     template = loader.get_template('assignments_edit.html')
 
-    return HttpResponse(template.render(context, request))
+    if request.method == 'POST':
+        form = AssignmentForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+        return HttpResponse(template.render(context, request))
+    else:
+        return HttpResponse(template.render(context, request))
 
 def edit_behavior(request, id):
     behavior = Behavior.objects.get(id=id)
