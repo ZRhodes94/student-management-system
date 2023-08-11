@@ -75,7 +75,7 @@ def delete_assignment(request, id):
     assignment.delete()
     context = {"assignment": assignment}
     template = loader.get_template('assignments.html')
-    return HttpResponseRedirect(reverse('assignment_view'))
+    return HttpResponseRedirect(reverse('assignments_view'))
 
 def delete_behavior(request, id):
     behavior = Behavior.objects.get(id=id)
