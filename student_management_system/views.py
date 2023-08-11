@@ -81,16 +81,8 @@ def delete_behavior(request, id):
     behavior.delete()
     return HttpResponseRedirect(reverse('behavior_view'))
 
-def delete_grade(request, id):
+def delete_grade(request, id, course_id):
     grade = Grade.objects.get(id=id)
     grade.delete()
-
-    referer = request.META.get('HTTP_REFERER'), None
-    if referer is None:
-        pass
-    try:
-        redirect_to = urlsplit(referer, 'http', False)[2]
-    except IndexError:
-        pass
-
-    return HttpResponseRedirect(redirect_to)
+    
+    return HttpResponseRedirect(reverse('class_view', kwargs={'course_id': course_id}))
