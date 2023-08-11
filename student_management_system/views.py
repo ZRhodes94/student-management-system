@@ -141,7 +141,7 @@ def updaterecord_behavior(request, id):
     behavior.save()
     return HttpResponseRedirect(reverse('behavior_view'))
 
-def updaterecord_behavior(request, course_id, grade_id):
+def updaterecord_grade(request, course_id, grade_id):
     student_id = request.POST['student']
     assignment_id = request.POST['assignment']
     pointsEarned = request.POST['pointsEarned']
