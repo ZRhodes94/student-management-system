@@ -57,7 +57,7 @@
           <td>{{behavior.date}}</td>
           <td>{{behavior.description}}</td>
           <td>{{behavior.interventions}}</td>
-          <td>Edit</td>
+          <td><a href="{% url 'edit_behavior_view' behavior.id %}">Edit</a></td>
           <td><a href="{% url 'delete_behavior_view' behavior.id %}">Delete</a></td>
         </tr>
         {% endfor %}
