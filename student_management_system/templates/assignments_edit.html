@@ -43,9 +43,15 @@
             <label for="name">Assignment Name: </label>
             <input id="name" name="name" placeholder="Name of Assignment" value="{{assignment.name}}"></input><br>
             <br>
+            <label for="class">Select class:</label>
+            <select id="class" name="course">
+              {% for course in courses %}
+              <option value="{{course.id}}">{{course.name}} ({{course.time}})</option>
+              {% endfor %}
+            </select>
         
             <label for="date">Select the due date:</label><br>
-            <input type="date" id="date"name="dueDate" value="{{assignment.dueDate|date:"yyyy-mm-dd" }}">
+            <input type="date" id="date"name="dueDate" value="{{assignment.dueDate|date:"YYYY-MM-DD" }}">
             <br><br>
             <label for="points">Possible Points:</label><br>
             <input id="points" name="pointsPossible" placeholder="Number of possible points" value="{{assignment.pointsPossible}}"></input>
