@@ -105,7 +105,8 @@ def edit_behavior(request, id):
 
 def edit_grade(request, course_id, grade_id):
     grade = Grade.objects.get(id=grade_id)
-    context = {"grade": grade}
+    course = Course.objects.get(id=course_id)
+    context = {"grade": grade, "course": course}
     template = loader.get_template('class-info_edit.html')
     
     return HttpResponse(template.render(context, request))

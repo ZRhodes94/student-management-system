@@ -65,7 +65,7 @@
                 <td>{{grade.assignment.pointsPossible}}</td>
                 <td>{{grade.pointsEarned}}</td>
                 <td>{{grade.pointsEarned}}/{{grade.assignment.pointsPossible}}</td>
-                <td><a href="{% url 'edit_grade_view' course.id grade.id %}">Delete</a></td>
+                <td><a href="{% url 'edit_grade_view' course.id grade.id %}">Edit</a></td>
                 <td><a href="{% url 'delete_grade_view' course.id grade.id %}">Delete</a></td>
               </tr>
               {% endfor %}
