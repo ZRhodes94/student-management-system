@@ -90,7 +90,7 @@ def delete_grade(request, course_id, grade_id):
 def edit_assignment(request, id):
     assignment = Assignment.objects.get(id=id)
     context = {"assignment": assignment}
-    template = loader.get_template('assignment_edit.html')
+    template = loader.get_template('assignments_edit.html')
 
     return HttpResponse(template.render(context, request))
 
