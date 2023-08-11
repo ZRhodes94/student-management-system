@@ -113,3 +113,18 @@ def edit_grade(request, course_id, grade_id):
     template = loader.get_template('class-info_edit.html')
     
     return HttpResponse(template.render(context, request))
+
+def updaterecord_assignment(request, id):
+  name = request.POST['name']
+  course = request.POST['course']
+  dueDate = request.POST['dueDate']
+  pointsPossible = request.POST['pointsPossible']
+  description = request.POST['description']
+  assignment = Assignment.objects.get(id=id)
+  assignment.name = name
+  assignment.course = course
+  assignment.dueDate = dueDate
+  assignment.pointsPossible = pointsPossible
+  assignment.description = description
+  assignment.save()
+  return HttpResponseRedirect(reverse('assignments_view'))
