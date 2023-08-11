@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.urls import reverse
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm, BehaviorForm, GradeForm
 
@@ -74,11 +75,11 @@ def delete_assignment(request, id):
     assignment.delete()
     context = {"assignment": assignment}
     template = loader.get_template('assignments.html')
-    return HttpResponse(template.render(context, request))
+    return HttpResponseRedirect(reverse('assignment_view'))
 
 def delete_behavior(request, id):
     behavior = Behavior.objects.get(id=id)
     behavior.delete()
     context = {"behavior": behavior}
     template = loader.get_template('behavior.html')
-    return HttpResponse(template.render(context, request))
+    return HttpResponseRedirect(reverse('behavior_view'))
