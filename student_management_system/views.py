@@ -88,17 +88,12 @@ def delete_grade(request, course_id, grade_id):
     return HttpResponseRedirect(reverse('class_view', kwargs={'id': course_id}))
 
 def edit_assignment(request, id):
+    teacher = Teacher.objects.get(name='Zachary Rhodes')
+    courses = Course.objects.filter(teacher = 1).order_by('time')
     assignment = Assignment.objects.get(id=id)
-    context = {"assignment": assignment}
+    context = {"assignment": assignment, "teacher": teacher, "courses": courses}
     template = loader.get_template('assignments_edit.html')
-
-    if request.method == 'POST':
-        form = AssignmentForm(request.POST or None)
-        if form.is_valid():
-            form.save()
-        return HttpResponse(template.render(context, request))
-    else:
-        return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render(context, request))
 
 def edit_behavior(request, id):
     behavior = Behavior.objects.get(id=id)
