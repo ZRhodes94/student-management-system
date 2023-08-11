@@ -107,8 +107,8 @@ def edit_grade(request, course_id, grade_id):
     grade = Grade.objects.get(id=grade_id)
     course = Course.objects.get(id=course_id)
     students = Student.objects.filter(courses=course_id)
-    assignment = Assignment.objects.filter(course=course_id)
-    context = {"grade": grade, "course": course, "students": students, "assignment": assignment,}
+    assignments = Assignment.objects.filter(course=course_id)
+    context = {"grade": grade, "course": course, "students": students, "assignments": assignments,}
     template = loader.get_template('class-info_edit.html')
     
     return HttpResponse(template.render(context, request))
