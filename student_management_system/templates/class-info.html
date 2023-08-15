@@ -65,7 +65,9 @@
                 <td>{{grade.assignment.name}}</td>
                 <td>{{grade.assignment.pointsPossible}}</td>
                 <td>{{grade.pointsEarned}}</td>
-                <td>{{grade.pointsEarned| div: grade.assignment.pointsPossible}}</td>
+                {% with numerator=grade.pointsEarned denominator=grade.assignment.pointsPossible %}
+                <td>{{numerator|div:denominator}}</td>
+                {% endwith %}
                 <td><a href="{% url 'edit_grade_view' course.id grade.id %}">Edit</a></td>
                 <td><a href="{% url 'delete_grade_view' course.id grade.id %}">Delete</a></td>
               </tr>
