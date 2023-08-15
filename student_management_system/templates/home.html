@@ -45,7 +45,7 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
         {% for course in courses %}
           <div class="row">
             <a href="{% url 'class_view' course.id %}" style="color: black; text-decoration: none;"> 
@@ -53,24 +53,10 @@
               <p>{{ course.description }}</p>
               <hr>
             </a>
-          </div>
-        {% endfor %}
-        {% endblock %}
-       </div>
-        <div class="col-md-3 contact">
-            <h3>Contact Form:</h3>
-            <form action="action_page.php">
-
-                <label for="fname">Student Name</label>
-                <input type="text" id="name" name="name" placeholder="Student name..">
-            
-                <label for="subject">Subject</label>
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
-            
-                <input type="submit" value="Send">
-            
-              </form>
-        </div>
+              </div>
+            {% endfor %}
+            {% endblock %}
+           </div>
         </div>
       </section>
     
