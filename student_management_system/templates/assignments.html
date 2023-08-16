@@ -79,6 +79,7 @@
             <br>
             <label for="class">Select class:</label>
             <select id="class" name="course">
+              <option value="none" selected disabled hidden>Select a Course</option>
               {% for course in courses %}
               <option value="{{course.id}}">{{course.name}} ({{course.time}})</option>
               {% endfor %}

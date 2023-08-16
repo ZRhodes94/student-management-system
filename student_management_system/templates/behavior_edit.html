@@ -42,6 +42,7 @@
 
         <label for="student">Student</label>
         <select id="student" name="student">
+          <option value="none" selected disabled hidden><bold>Re-select</bold> a Student</option>
         {% for student in students %}
           <option value="{{student.id}}">{{student.name}}</option>
         {% endfor %}
