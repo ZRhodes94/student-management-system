@@ -31,7 +31,7 @@ def class_view(request, id):
     assignments = Assignment.objects.filter(course=id)
     grades = Grade.objects.filter(assignment__course=id).order_by('student')
 
-    averages = Grade.objects.values('assignment__name').annotate(avg=Avg('pointsEarned'))
+    averages = Grade.objects.filter(course=id).values('assignment__name').annotate(avg=Avg('pointsEarned'))
     x = averages.values_list('assignment__name', flat=True)
     y = averages.values_list('avg', flat=True)
     fig = px.bar(x=x, y=y)
