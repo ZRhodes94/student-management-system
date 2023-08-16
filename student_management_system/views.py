@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.urls import reverse
 from urllib.parse import urlsplit
 from django.db.models import Avg
-import numpy as np
 import plotly.express as px
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm, BehaviorForm, GradeForm
@@ -33,15 +32,15 @@ def class_view(request, id):
     grades = Grade.objects.filter(assignment__course=id).order_by('student')
 
     averages = Grade.objects.filter(assignment__course=id).values('assignment__name', 'assignment__pointsPossible').annotate(avg=Avg('pointsEarned'))
-    xRaw = averages.values_list('assignment__name', flat=True)
+    x = averages.values_list('assignment__name', flat=True)
     possiblePoints = averages.values_list('assignment__pointsPossible', flat=True)
-    xDecimal = []
+    yRaw = averages.values_list('avg', flat=True)
+    yDecimal = []
 
-    for i in range(len(xRaw)):
-        xDecimal.append(int(xRaw[i])/int(possiblePoints[i]))
+    for i in range(len(yRaw)):
+        yDecimal.append(yRaw[i]/possiblePoints[i])
 
-    x = [int(i) * 100 for i in xDecimal]
-    y = averages.values_list('avg', flat=True)
+    y = [i * 100 for i in yDecimal]
     fig = px.bar(x=x, y=y)
     fig.update_layout(title_text='Average Assignment Scores', x='Assignments', y='Average Score (points)')
     chart = fig.to_html()
