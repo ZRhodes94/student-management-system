@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from urllib.parse import urlsplit
 from django.db.models import Avg
+import numpy as np
 import plotly.express as px
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm, BehaviorForm, GradeForm
@@ -34,7 +35,7 @@ def class_view(request, id):
     averages = Grade.objects.filter(assignment__course=id).values('assignment__name', 'assignment__pointsPossible').annotate(avg=Avg('pointsEarned'))
     xRaw = averages.values_list('assignment__name', flat=True)
     possiblePoints = averages.values_list('assignment__pointsPossible', flat=True)
-    xDecimal = xRaw/possiblePoints
+    xDecimal = np.divide(xRaw, possiblePoints)
     x = [i * 100 for i in xDecimal]
     y = averages.values_list('avg', flat=True)
     fig = px.bar(x=x, y=y)
