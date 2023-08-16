@@ -42,7 +42,7 @@ def class_view(request, id):
 
     y = [i * 100 for i in yDecimal]
     fig = px.bar(x=x, y=y)
-    fig.update_layout(title_text='Average Assignment Scores', x='Assignments', y='Average Score (points)')
+    fig.update_layout(title_text='Average Assignment Scores')
     chart = fig.to_html()
 
     context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments, "chart": chart}
