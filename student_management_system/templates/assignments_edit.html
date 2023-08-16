@@ -49,9 +49,9 @@
               {% for course in courses %}
               <option value="{{course.id}}">{{course.name}} ({{course.time}})</option>
               {% endfor %}
-            </select><br>
-            Previously: {{assignment.course__name}}
-        
+            </select>
+            Previously: {{assignment.course.name}}
+            <br>
             <label for="date"><bold>Re-select</bold> the due date:</label><br>
             <input type="date" id="date"name="dueDate"> Previously: {{assignment.dueDate}}
             <br><br>
