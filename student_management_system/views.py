@@ -38,9 +38,9 @@ def class_view(request, id):
     xDecimal = []
 
     for i in range(len(xRaw)):
-        xDecimal.append(xRaw[i]/possiblePoints[i])
+        xDecimal.append(int(xRaw[i])/int(possiblePoints[i]))
 
-    x = [i * 100 for i in xDecimal]
+    x = [int(i) * 100 for i in xDecimal]
     y = averages.values_list('avg', flat=True)
     fig = px.bar(x=x, y=y)
     fig.update_layout(title_text='Average Assignment Scores', x='Assignments', y='Average Score (points)')
