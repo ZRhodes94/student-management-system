@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from urllib.parse import urlsplit
 from django.db.models import Avg
+import plotly.express as px
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm, BehaviorForm, GradeForm
 
@@ -29,7 +30,15 @@ def class_view(request, id):
     students = Student.objects.filter(courses=id)
     assignments = Assignment.objects.filter(course=id)
     grades = Grade.objects.filter(assignment__course=id).order_by('student')
-    context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments}
+
+    averages = Grade.objects.values('assignment__name').annotate(avg=Avg('pointsEarned'))
+    x = averages.values_list('assignment__name', flat=True)
+    y = averages.values_list('avg', flat=True)
+    fig = px.bar(x=x, y=y)
+    fig.update_layout(title_txt='Average Assignment Scores')
+    chart = fig.to_html()
+
+    context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments, "chart": chart}
     context["course"] = Course.objects.get(id = id)
     template = loader.get_template('class-info.html')
     
