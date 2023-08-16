@@ -31,8 +31,11 @@ def class_view(request, id):
     assignments = Assignment.objects.filter(course=id)
     grades = Grade.objects.filter(assignment__course=id).order_by('student')
 
-    averages = Grade.objects.filter(assignment__course=id).values('assignment__name').annotate(avg=Avg('pointsEarned/assignment__pointsPossible*100'))
-    x = averages.values_list('assignment__name', flat=True)
+    averages = Grade.objects.filter(assignment__course=id).values('assignment__name', 'assignment__pointsPossible').annotate(avg=Avg('pointsEarned'))
+    xRaw = averages.values_list('assignment__name', flat=True)
+    possiblePoints = averages.values_list('assignment__pointsPossible', flat=True)
+    xDecimal = xRaw/possiblePoints
+    x = [i * 100 for i in xDecimal]
     y = averages.values_list('avg', flat=True)
     fig = px.bar(x=x, y=y)
     fig.update_layout(title_text='Average Assignment Scores', x='Assignments', y='Average Score (points)')
