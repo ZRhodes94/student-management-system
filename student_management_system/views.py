@@ -41,7 +41,7 @@ def class_view(request, id):
         yDecimal.append(yRaw[i]/possiblePoints[i])
 
     y = [i * 100 for i in yDecimal]
-    fig = px.bar(x=x, y=y)
+    fig = px.bar(x=x, y=y, labels={'x': 'Assignment Name', 'y':'Assignment Score'})
     fig.update_layout(title_text='Average Assignment Scores')
     chart = fig.to_html()
 
