@@ -35,7 +35,7 @@ def class_view(request, id):
     x = averages.values_list('assignment__name', flat=True)
     y = averages.values_list('avg', flat=True)
     fig = px.bar(x=x, y=y)
-    fig.update_layout(title_txt='Average Assignment Scores')
+    fig.update_layout(title_text='Average Assignment Scores')
     chart = fig.to_html()
 
     context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments, "chart": chart}
