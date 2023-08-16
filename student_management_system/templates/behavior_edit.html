@@ -46,7 +46,8 @@
         {% for student in students %}
           <option value="{{student.id}}">{{student.name}}</option>
         {% endfor %}
-        </select>
+        </select><br>
+        Previously: {{behavior.student__name}}
     
         <label for="date-time"><bold>Re-select</bold> the date of the incident:</label>
         <input type="date" id="date" name="date"> Previously: {{behavior.date}}
