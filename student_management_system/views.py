@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from urllib.parse import urlsplit
+from django.db.models import Avg
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm, BehaviorForm, GradeForm
 
