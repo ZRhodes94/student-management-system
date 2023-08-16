@@ -35,7 +35,11 @@ def class_view(request, id):
     averages = Grade.objects.filter(assignment__course=id).values('assignment__name', 'assignment__pointsPossible').annotate(avg=Avg('pointsEarned'))
     xRaw = averages.values_list('assignment__name', flat=True)
     possiblePoints = averages.values_list('assignment__pointsPossible', flat=True)
-    xDecimal = np.divide(xRaw, possiblePoints)
+    xDecimal = []
+
+    for i in range(len(xRaw)):
+        xDecimal.append(xRaw[i]/possiblePoints[i])
+
     x = [i * 100 for i in xDecimal]
     y = averages.values_list('avg', flat=True)
     fig = px.bar(x=x, y=y)
