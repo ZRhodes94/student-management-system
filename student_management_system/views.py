@@ -43,8 +43,10 @@ def class_view(request, id):
         fig = px.bar(x=x, y=y, labels={'x': 'Assignment Name', 'y':'Assignment Score'})
         fig.update_layout(title_text='Average Assignment Scores')
         chart = fig.to_html()
-
-    context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments, "chart": chart}
+        context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments, "chart": chart}
+    else:
+        context = {"teacher": teacher, "grades": grades, "students": students, "assignments": assignments}
+    
     context["course"] = Course.objects.get(id = id)
     template = loader.get_template('class-info.html')
     
