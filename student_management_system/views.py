@@ -31,7 +31,7 @@ def class_view(request, id):
     assignments = Assignment.objects.filter(course=id)
     grades = Grade.objects.filter(assignment__course=id).order_by('student')
 
-    if len(assignments) > 0:
+    if len(assignments) > 0 and len(grades) > 0:
         averages = Grade.objects.filter(assignment__course=id).values('assignment__name', 'assignment__pointsPossible').annotate(avg=Avg('pointsEarned'))
         x = averages.values_list('assignment__name', flat=True)
         possiblePoints = averages.values_list('assignment__pointsPossible', flat=True)
