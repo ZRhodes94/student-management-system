@@ -44,6 +44,11 @@
           <form method="POST" class="container">  
             <div class="container">   
                 {% csrf_token %}
+                <label>Username : </label>   
+                <input type="text" placeholder="Enter Username" name="username" required>  
+                <label>Password : </label>   
+                <input type="password" placeholder="Enter Password" name="password" required>  
+                <br>
                <button type="submit">Log In</button>     
             </div>   
         </form>

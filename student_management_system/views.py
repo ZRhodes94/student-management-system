@@ -1,21 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
-from urllib.parse import urlsplit
+from django.contrib.auth import authenticate, login, logout
 from django.db.models import Avg
 import plotly.express as px
+from django.contrib import messages
 from .models import Teacher, Student, Parent, Assignment, Grade, Behavior, Course
 from .forms import AssignmentForm, BehaviorForm, GradeForm
-
-
-
-# Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
 
 def login_view(request):
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home_view')
+        else:
+            messages.success(request, ("There Was An Error Logging In, Try Again..."))	
+            return redirect('login')	
+    else:
+        return render(request, 'index.html', {})
 
 def home_view(request):
     teacher = Teacher.objects.get(name='Zachary Rhodes')
