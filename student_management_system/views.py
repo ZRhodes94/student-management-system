@@ -20,7 +20,8 @@ def login_view(request):
             return redirect('home_view')
         else:
             messages.success(request, ("There Was An Error Logging In, Try Again..."))	
-            return redirect('login')	
+            template = loader.get_template('index.html')
+            return HttpResponse(template.render({}, request))	
     else:
         return render(request, 'index.html', {})
 
