@@ -46,8 +46,8 @@
           </ul>
         </div>
         <div class="col-md-9">
-        <h2>Classes:</h2>
-        <p>Click on name to view grade details</p>
+        <h2><u>Classes:</u></h2>
+        <p><small>Click on name to view grade details</small></p>
         {% for course in courses %}
           <div class="row">
             <a href="{% url 'class_view' course.id %}" style="color: black; text-decoration: none;"> 
